@@ -1,3 +1,13 @@
 form {
-	font-weight:bold;
+	font-weight: bold;
+}
+
+h1 {
+	font-family: 'Fredoka One', cursive;
+}
+
+#barcode {
+	font-family: 'Libre Barcode 39', cursive;
+	font-size: 40px;
+	text-align: center;
 }
