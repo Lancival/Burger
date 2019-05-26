@@ -333,5 +333,14 @@ function makeNewBurger() {
   if (rand() < 1.0/6) newBurger.condiments.push("Special Sauce");
   if (rand() < 1.0/6)  newBurger.condiments.push("Ranch");
 
+  var broiler = document.getElementById("broiler");
+  broiler.setAttribute("hidden", false);
+  broiler.innerHTML() = newBurger.breadType + " " + newBurger.meatType + " " + newBurger.cookingMethod + " Burger";
+  var iterator = 0;
+  while(newBurger.layers.length < iterator){
+  	
+  	iterator++;
+  }
+
   return newBurger;
 }
