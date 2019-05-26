@@ -248,6 +248,76 @@ if ((typeof module) == 'object' && module.exports) {
   Math    // math: package containing random, pow, and seedrandom
 );
 
-var burgerString = document.getElementById("burgerString");
-Math.seedrandom(burgerString);
+function makeNewBurger() {
+  var rand = Math.seedrandom(document.getElementById("seeds").value);
+  var newBurger = {name: "Burger"}
 
+  // Determine number of layers in burger
+  newBurger.numLayers = Math.floor(rand() * 11) + 2;
+
+  // Determine type of bread used in burger
+  switch(Math.floor(rand() * 5) + 1) {
+    case 1:
+      newBurger.breadType = "Sesame Seed Bun"
+      break;
+    case 2:
+      newBurger.breadType = "Ciabatta Roll"
+      break;
+    case 3:
+      newBurger.breadType = "Potato Roll"
+      break;
+    case 4:
+      newBurger.breadType = "Pretzel Roll"
+      break;
+    case 5:
+      newBurger.breadType = "Sliced Bread"
+  }
+
+  // Determine type of meat/meat substitute used in burger
+  switch(Math.floor(rand() * 4) + 1) {
+    case 1:
+      newBurger.meatType = "Beef Patty";
+      break;
+    case 2:
+      newBurger.meatType = "Chicken Patty";
+      break;
+    case 3:
+      newBurger.meatType = "Veggie Patty";
+      break;
+    case 4:
+      newBurger.meatType = "Fish Filet";
+  }
+
+  // Generate each layer of burger
+  newBurger.layers = ["Bun"];
+  for (int layer = 1; layer < newBurger.numLayers - 1; layer++) {
+    switch(Math.floor(rand() * 5) + 1) {
+      case 1:
+        newBurger.layers.push("Patty");
+        break;
+      case 2:
+        newBurger.layers.push("Lettuce");
+        break;
+      case 3:
+        newBurger.layers.push("Tomatoes");
+        break;
+      case 4:
+        newBurger.layers.push("Pickles");
+        break;
+      case 5:
+        newBurger.layers.push("Onions");
+        break;
+    }
+  }
+  newBurger.layers.push("Bun");
+
+  // Determine condiments used in burger, average of 1 condiment
+  newBurger.condiments = [];
+  if (rand() < 0.2) newBurger.condiments.push("Ketchup");
+  if (rand() < 0.2) newBurger.condiments.push("Mayonnaise");
+  if (rand() < 0.2) newBurger.condiments.push("Mustard");
+  if (rand() < 0.2) newBurger.condiments.push("Relish");
+  if (rand() < 0.2) newBurger.condiments.push("Special Sauce");
+
+  return newBurger;
+}
