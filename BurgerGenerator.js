@@ -250,6 +250,7 @@ if ((typeof module) == 'object' && module.exports) {
 
 function makeNewBurger() {
   var rand = Math.seedrandom(document.getElementById("seeds").value);
+  if (!str || 0 === str.length) rand = Math.seedrandom("burger");
   var newBurger = {name: "Burger"}
 
   // Determine number of layers in burger
