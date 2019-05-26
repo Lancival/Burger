@@ -247,3 +247,7 @@ if ((typeof module) == 'object' && module.exports) {
   [],     // pool: entropy pool starts empty
   Math    // math: package containing random, pow, and seedrandom
 );
+
+var burgerString = document.getElementById("burgerString");
+Math.seedrandom(burgerString);
+
