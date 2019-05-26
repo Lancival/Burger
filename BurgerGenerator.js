@@ -303,7 +303,7 @@ function makeNewBurger() {
 
   // Generate each layer of burger
   newBurger.layers = ["Bun"];
-  for (int layer = 1; layer < newBurger.numLayers - 1; layer++) {
+  for (var layer = 1; layer < newBurger.numLayers - 1; layer++) {
     switch(Math.floor(rand() * 5) + 1) {
       case 1:
         newBurger.layers.push("Patty");
@@ -334,7 +334,7 @@ function makeNewBurger() {
   if (rand() < 1.0/6)  newBurger.condiments.push("Ranch");
 
   var broiler = document.getElementById("broiler");
-  broiler.setAttribute("hidden", false);
+  broiler.setAttribute("hidden", true);
   broiler.innerHTML() = newBurger.breadType + " " + newBurger.meatType + " " + newBurger.cookingMethod + " Burger";
   var iterator = 0;
   while(newBurger.layers.length < iterator){
@@ -344,3 +344,5 @@ function makeNewBurger() {
 
   return newBurger;
 }
+
+document.getElementById("button").onclick = makeNewBurger;
