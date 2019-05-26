@@ -288,6 +288,18 @@ function makeNewBurger() {
       newBurger.meatType = "Fish Filet";
   }
 
+  // Determine method of cooking meat/meat substitute
+  switch(Math.floor(rand() * 3) + 1) {
+    case 1:
+      newBurger.cookingMethod = "Pan Fried";
+      break;
+    case 2:
+      newBurger.cookingMethod = "Grilled";
+      break;
+    case 3:
+      newBurger.cookingMethod = "Flame Broiled";
+  }
+
   // Generate each layer of burger
   newBurger.layers = ["Bun"];
   for (int layer = 1; layer < newBurger.numLayers - 1; layer++) {
@@ -313,11 +325,12 @@ function makeNewBurger() {
 
   // Determine condiments used in burger, average of 1 condiment
   newBurger.condiments = [];
-  if (rand() < 0.2) newBurger.condiments.push("Ketchup");
-  if (rand() < 0.2) newBurger.condiments.push("Mayonnaise");
-  if (rand() < 0.2) newBurger.condiments.push("Mustard");
-  if (rand() < 0.2) newBurger.condiments.push("Relish");
-  if (rand() < 0.2) newBurger.condiments.push("Special Sauce");
+  if (rand() < 1.0/6) newBurger.condiments.push("Ketchup");
+  if (rand() < 1.0/6) newBurger.condiments.push("Mayonnaise");
+  if (rand() < 1.0/6) newBurger.condiments.push("Mustard");
+  if (rand() < 1.0/6) newBurger.condiments.push("Relish");
+  if (rand() < 1.0/6) newBurger.condiments.push("Special Sauce");
+  if (rand() < 1.0/6)  newBurger.condiments.push("Ranch");
 
   return newBurger;
 }
