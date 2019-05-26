@@ -249,7 +249,7 @@ if ((typeof module) == 'object' && module.exports) {
 );
 
 function makeNewBurger() {
-  var rand = Math.seedrandom(document.getElementById("___").value);
+  var rand = Math.seedrandom(document.getElementById("seeds").value);
   var newBurger = {name: "Burger"}
 
   // Determine number of layers in burger
@@ -288,9 +288,10 @@ function makeNewBurger() {
       newBurger.meatType = "Fish Filet";
   }
 
+  // Generate each layer of burger
   newBurger.layers = ["Bun"];
-  for (int layer = 1; layer < newBurger.numLayers; layer++) {
-    switch(Math.floor(rand() * ) + 1) {
+  for (int layer = 1; layer < newBurger.numLayers - 1; layer++) {
+    switch(Math.floor(rand() * 5) + 1) {
       case 1:
         newBurger.layers.push("Patty");
         break;
@@ -308,4 +309,15 @@ function makeNewBurger() {
         break;
     }
   }
+  newBurger.layers.push("Bun");
+
+  // Determine condiments used in burger, average of 1 condiment
+  newBurger.condiments = [];
+  if (rand() < 0.2) newBurger.condiments.push("Ketchup");
+  if (rand() < 0.2) newBurger.condiments.push("Mayonnaise");
+  if (rand() < 0.2) newBurger.condiments.push("Mustard");
+  if (rand() < 0.2) newBurger.condiments.push("Relish");
+  if (rand() < 0.2) newBurger.condiments.push("Special Sauce");
+
+  return newBurger;
 }
